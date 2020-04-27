@@ -50,7 +50,13 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // storyblockの設定
+    'storyblock-nuxt',
+    {
+      accessToken: 'i9exEukJBJ4J6n6mGatEiwtt',
+      chacheProvider: 'memory'
+    }
   ],
   /*
    ** Axios module configuration
