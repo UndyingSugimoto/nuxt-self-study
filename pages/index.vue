@@ -18,7 +18,7 @@ export default Vue.extend({
     // Load the JSON from the API
     return context.app.$storyapi
       .get('cdn/stories/home', {
-        version: 'draft'
+        version: 'draft',
       })
       .then((res) => {
         return res.data
@@ -27,19 +27,19 @@ export default Vue.extend({
         if (!res.response) {
           context.error({
             statusCode: 404,
-            message: 'Failed to receive content form api'
+            message: 'Failed to receive content form api',
           })
         } else {
           context.error({
             statusCode: res.response.status,
-            message: res.response.data
+            message: res.response.data,
           })
         }
       })
   },
   data() {
     return {
-      story: { id: '', content: {} }
+      story: { id: '', content: {} },
     }
   },
   mounted() {
@@ -53,10 +53,10 @@ export default Vue.extend({
         // window.location.reload()
         this.$nuxt.$router.go({
           path: this.$nuxt.$router.currentRoute,
-          force: true
+          force: true,
         })
       }
     })
-  }
+  },
 })
 </script>

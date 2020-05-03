@@ -1,4 +1,6 @@
-export default {
+import { Configuration } from '@nuxt/types'
+
+const config: Configuration = {
   mode: 'universal',
   /*
    ** Headers of the page
@@ -11,16 +13,16 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700'
-      }
-    ]
+        href: 'https://fonts.googleapis.com/css?family=Zilla+Slab:400,700',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -40,7 +42,7 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
   ],
   /*
    ** Nuxt.js modules
@@ -52,11 +54,13 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // storyblockの設定
-    'storyblok-nuxt',
-    {
-      accessToken: 'i9exEukJBJ4J6n6mGatEiwtt',
-      chacheProvider: 'memory'
-    }
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: 'YOUR_PREVIEW_TOKEN',
+        cacheProvider: 'memory',
+      },
+    ],
   ],
   /*
    ** Axios module configuration
@@ -71,5 +75,7 @@ export default {
      ** You can extend webpack config here
      */
     // extend(config, ctx) {}
-  }
+  },
 }
+
+export default config

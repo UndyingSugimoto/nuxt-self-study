@@ -15,8 +15,8 @@ import BottomFooter from '~/components/BottomFooter.vue'
 export default {
   components: {
     TopHeader,
-    BottomFooter
-  }
+    BottomFooter,
+  },
 }
 </script>
 

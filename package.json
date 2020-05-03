@@ -22,6 +22,7 @@
     }
   },
   "dependencies": {
+    "@nuxt/config": "^2.12.2",
     "@nuxt/typescript-runtime": "^0.4.6",
     "@nuxt/vue-app": "^2.12.2",
     "@nuxtjs/axios": "^5.10.3",
