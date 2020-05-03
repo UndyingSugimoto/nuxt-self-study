@@ -1,22 +1,5 @@
 # nuxt-self-study
 
-> My excellent Nuxt.js project
+## [このドキュメントを実装してみた](https://www.storyblok.com/tp/nuxt-js-multilanguage-website-tutorial)
 
-## Build Setup
-
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+全てtypescript化してる。
