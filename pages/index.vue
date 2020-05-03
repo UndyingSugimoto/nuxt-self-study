@@ -1,19 +1,45 @@
 <template>
   <section class="util__container">
     <component
+      :is="story.content.component"
       v-if="story.content.component"
       :key="story.content._uid"
       :blok="story.content"
-      :is="story.content.component"
     ></component>
   </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Context, Response } from '@nuxt/types'
+import Vue from 'Vue'
+
+export default Vue.extend({
+  asyncData(context: Context) {
+    // Load the JSON from the API
+    return context.app.$storyapi
+      .get('cdn/stories/home', {
+        version: 'draft'
+      })
+      .then((res) => {
+        return res.data
+      })
+      .catch((res: Response) => {
+        if (!res.response) {
+          context.error({
+            statusCode: 404,
+            message: 'Failed to receive content form api'
+          })
+        } else {
+          context.error({
+            statusCode: res.response.status,
+            message: res.response.data
+          })
+        }
+      })
+  },
   data() {
     return {
-      story: { content: {} }
+      story: { id: '', content: {} }
     }
   },
   mounted() {
@@ -31,31 +57,6 @@ export default {
         })
       }
     })
-  },
-  asyncData(context) {
-    // Load the JSON from the API
-    return context.app.$storyapi
-      .get('cdn/stories/home', {
-        version: 'draft'
-      })
-      .then((res) => {
-        return res.data
-      })
-      .catch((res) => {
-        if (!res.response) {
-          console.error(res)
-          context.error({
-            statusCode: 404,
-            message: 'Failed to receive content form api'
-          })
-        } else {
-          console.error(res.response.data)
-          context.error({
-            statusCode: res.response.status,
-            message: res.response.data
-          })
-        }
-      })
   }
-}
+})
 </script>
