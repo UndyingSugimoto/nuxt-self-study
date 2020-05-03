@@ -19,6 +19,7 @@ export default Vue.extend({
     return context.app.$storyapi
       .get('cdn/stories/home', {
         version: 'draft',
+        token: process.env.TOKEN,
       })
       .then((res) => {
         return res.data

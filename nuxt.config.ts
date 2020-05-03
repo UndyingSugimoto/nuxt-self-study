@@ -35,7 +35,7 @@ const config: Configuration = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/components'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -54,11 +54,12 @@ const config: Configuration = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // storyblockの設定
+    // 読み込めないので諦めた
     [
       'storyblok-nuxt',
       {
-        accessToken: 'YOUR_PREVIEW_TOKEN',
-        cacheProvider: 'memory',
+        // accessToken: 'accessToken',
+        // cacheProvider: 'memory',
       },
     ],
   ],
